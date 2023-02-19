@@ -4,11 +4,11 @@ importers:
 
   .:
     specifiers:
-      eslint-config-custom: workspace:*
+      eslint-config-use-flagr: workspace:*
       prettier: latest
       turbo: latest
     devDependencies:
-      eslint-config-custom: link:config/eslint-config-custom
+      eslint-config-use-flagr: link:config/eslint-config-use-flagr
       prettier: 2.8.4
       turbo: 1.8.1
 
@@ -19,11 +19,11 @@ importers:
       '@types/react': ^18.0.22
       '@types/react-dom': ^18.0.7
       eslint: 7.32.0
-      eslint-config-custom: workspace:*
+      eslint-config-use-flagr: workspace:*
       next: ^13.1.1
       react: 18.2.0
       react-dom: 18.2.0
-      tsconfig: workspace:*
+      tsconfig-use-flagr: workspace:*
       typescript: ^4.5.3
       ui: workspace:*
     dependencies:
@@ -37,8 +37,8 @@ importers:
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
       eslint: 7.32.0
-      eslint-config-custom: link:../../config/eslint-config-custom
-      tsconfig: link:../../config/tsconfig
+      eslint-config-use-flagr: link:../../config/eslint-config-use-flagr
+      tsconfig-use-flagr: link:../../config/tsconfig-use-flagr
       typescript: 4.9.5
 
   apps/web:
@@ -48,11 +48,11 @@ importers:
       '@types/react': ^18.0.22
       '@types/react-dom': ^18.0.7
       eslint: 7.32.0
-      eslint-config-custom: workspace:*
+      eslint-config-use-flagr: workspace:*
       next: ^13.1.1
       react: 18.2.0
       react-dom: 18.2.0
-      tsconfig: workspace:*
+      tsconfig-use-flagr: workspace:*
       typescript: ^4.5.3
       ui: workspace:*
     dependencies:
@@ -66,11 +66,11 @@ importers:
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
       eslint: 7.32.0
-      eslint-config-custom: link:../../config/eslint-config-custom
-      tsconfig: link:../../config/tsconfig
+      eslint-config-use-flagr: link:../../config/eslint-config-use-flagr
+      tsconfig-use-flagr: link:../../config/tsconfig-use-flagr
       typescript: 4.9.5
 
-  config/eslint-config-custom:
+  config/eslint-config-use-flagr:
     specifiers:
       eslint: ^7.23.0
       eslint-config-next: 13.0.0
@@ -87,7 +87,7 @@ importers:
     devDependencies:
       typescript: 4.9.5
 
-  config/tsconfig:
+  config/tsconfig-use-flagr:
     specifiers: {}
 
   packages/ui:
@@ -95,17 +95,17 @@ importers:
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
       eslint: ^7.32.0
-      eslint-config-custom: workspace:*
+      eslint-config-use-flagr: workspace:*
       react: ^18.2.0
-      tsconfig: workspace:*
+      tsconfig-use-flagr: workspace:*
       typescript: ^4.5.2
     devDependencies:
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
       eslint: 7.32.0
-      eslint-config-custom: link:../../config/eslint-config-custom
+      eslint-config-use-flagr: link:../../config/eslint-config-use-flagr
       react: 18.2.0
-      tsconfig: link:../../config/tsconfig
+      tsconfig-use-flagr: link:../../config/tsconfig-use-flagr
       typescript: 4.9.5
 
 packages:
