@@ -9,4 +9,7 @@ module.exports = {
     // ignore lint commit when squash message
     (msg) => /.*:.*\(#\d+\)/g.test(msg),
   ],
+  rules: {
+    "header-max-length": [2, "always", 200],
+  },
 };
