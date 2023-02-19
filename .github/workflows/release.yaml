@@ -1,51 +1,31 @@
-name: release
+name: Release
+
 on:
   push:
     branches:
       - main
       - next
-
+  
 jobs:
-  init:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup-node
-      - uses: wagoid/commitlint-github-action@v4
+
+      - name: (lint commit) check all commits
+        uses: wagoid/commitlint-github-action@v4
         env:
           NODE_PATH: ${{ github.workspace }}/node_modules
 
-  validate:
-    needs: init
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup-node
-
       - name: validate (lint)
         run: pnpm run lint
-
-  test:
-    needs: init
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup-node
-
+      
       - name: run test
         run: pnpm run test --collectCoverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
-
-  release:
-    needs:
-      - validate
-      - test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup-node
 
       - name: run build
         run: pnpm run build
