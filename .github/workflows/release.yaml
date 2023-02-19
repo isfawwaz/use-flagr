@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+      - next
+  
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup-node
+
+      - name: (lint commit) check all commits
+        uses: wagoid/commitlint-github-action@v4
+        env:
+          NODE_PATH: ${{ github.workspace }}/node_modules
+
+      - name: validate (lint)
+        run: pnpm run lint
+      
+      - name: run test
+        run: pnpm run test --collectCoverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+
+      - name: run build
+        run: pnpm run build
+
+      - name: release project
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_USER: "isfawwaz"
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GIT_AUTHOR_EMAIL: "isfawwaz@gmail.com"
+          GIT_COMMITTER_EMAIL: "isfawwaz@gmail.com"
+          GIT_AUTHOR_NAME: "isfawwaz"
+          GIT_COMMITTER_NAME: "isfawwaz"
+        run: pnpm run release
